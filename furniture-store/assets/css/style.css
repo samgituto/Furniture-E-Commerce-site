@@ -1,0 +1,134 @@
+/* =====================================================================
+   assets/css/style.css
+   FurnishHub — main stylesheet. Consistent brand colors and reusable
+   classes used across every public and admin page.
+   ===================================================================== */
+
+:root {
+  --brand: #8b5e3c;
+  --brand-dark: #6e4a2f;
+  --brand-light: #f4e9df;
+  --text-dark: #2b2620;
+}
+
+body {
+  font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+  color: var(--text-dark);
+}
+
+/* ---------- Brand utility classes ---------- */
+.text-brand { color: var(--brand) !important; }
+.bg-brand { background-color: var(--brand) !important; }
+.btn-brand {
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+}
+.btn-brand:hover { background-color: var(--brand-dark); border-color: var(--brand-dark); color: #fff; }
+
+/* ---------- Navbar ---------- */
+.navbar-brand { color: var(--brand) !important; }
+.footer-link { color: #c9c2b8; text-decoration: none; }
+.footer-link:hover { color: #fff; }
+
+/* ---------- Hero ---------- */
+.hero-section {
+  background: linear-gradient(135deg, var(--brand-light) 0%, #fff 100%);
+  min-height: 420px;
+}
+.hero-icon { font-size: 220px; color: var(--brand); opacity: 0.15; }
+
+/* ---------- Section headers ---------- */
+.section-title {
+  font-weight: 700;
+  position: relative;
+}
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--brand);
+  margin: 10px auto 0;
+}
+
+/* ---------- Categories ---------- */
+.category-card {
+  display: block;
+  text-align: center;
+  padding: 20px 10px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.2s ease;
+}
+.category-card:hover { transform: translateY(-4px); }
+.category-icon { font-size: 28px; color: var(--brand); }
+
+/* ---------- Product cards ---------- */
+.product-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+.product-card-img { height: 220px; object-fit: cover; }
+
+/* ---------- Testimonials ---------- */
+.testimonial-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  height: 100%;
+}
+
+/* ---------- Newsletter ---------- */
+.newsletter-section {
+  background: var(--brand-light);
+}
+
+/* ---------- Filter / summary cards (shop, cart, checkout) ---------- */
+.filter-card, .summary-card, .auth-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+}
+
+.empty-state { color: #8a8378; }
+
+/* ---------- Product details page ---------- */
+.product-gallery-main { max-height: 420px; width: 100%; object-fit: cover; }
+.product-thumb { width: 70px; height: 70px; object-fit: cover; cursor: pointer; }
+.review-card { background: #fff; border-radius: 10px; padding: 14px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+
+/* ---------- Admin layout ---------- */
+.admin-wrapper { min-height: 100vh; }
+.admin-sidebar {
+  width: 240px;
+  background: #23201b;
+  min-height: 100vh;
+  flex-shrink: 0;
+}
+.admin-sidebar .nav-link { color: #cfc7ba; border-radius: 8px; margin-bottom: 2px; }
+.admin-sidebar .nav-link:hover, .admin-sidebar .nav-link.active { background: var(--brand); color: #fff; }
+.admin-main { background: #f7f5f2; min-height: 100vh; }
+.admin-topbar { background: #fff; border-bottom: 1px solid #e7e2da; }
+.admin-card { background: #fff; border-radius: 10px; box-shadow: 0 1px 6px rgba(0,0,0,0.05); }
+.admin-stat-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+.admin-stat-card i { font-size: 22px; color: var(--brand); }
+.admin-stat-card h3 { margin: 8px 0 0; font-weight: 700; }
+.admin-stat-card p { color: #8a8378; margin: 0; font-size: 0.85rem; }
+
+@media (max-width: 992px) {
+  .admin-sidebar { position: fixed; left: -240px; z-index: 1050; transition: left 0.2s ease; }
+  .admin-sidebar.show { left: 0; }
+}
